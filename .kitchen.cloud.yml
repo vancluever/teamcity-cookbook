@@ -1,0 +1,22 @@
+---
+driver:
+  name: ec2
+
+driver_config:
+  aws_ssh_key_id: chef-kitchen-test-aws
+  instance_type: t2.medium
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      image_id: ami-86e605b5
+
+suites:
+  - name: server
+    run_list:
+      - recipe[teamcity::database]
+      - recipe[teamcity::server]
+    attributes:

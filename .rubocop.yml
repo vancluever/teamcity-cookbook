@@ -1,0 +1,8 @@
+Style/SingleSpaceBeforeFirstArg:
+  Exclude:
+    - metadata.rb
+Lint/ParenthesesAsGroupedExpression:
+  Exclude:
+    - recipes/*.rb
+Metrics/LineLength:
+  Max: 120
