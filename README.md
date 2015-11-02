@@ -69,6 +69,6 @@ Key things:
 
  * Create the `chef-kitchen-test-aws` key pair in AWS
  * Ensure you have a valid credentials in your default AWS profile, or
-   export AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and optionally
-   AWS_SESSION_TOKEN and AWS_REGION
- * Run KITCHEN_YAML=.kitchen.cloud.yml kitchen COMMAND
+   export `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and optionally
+   `AWS_SESSION_TOKEN` and `AWS_REGION`
+ * Run `KITCHEN_YAML=.kitchen.cloud.yml kitchen COMMAND`
