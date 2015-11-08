@@ -32,6 +32,6 @@ file "#{TC_DIRS[:config]}/database.properties" do
   content <<-EOT.gsub(/^ {4}/, '')
     connectionProperties.user=#{node['teamcity']['db_username']}
     connectionProperties.password=#{node['teamcity']['db_password']}
-    connectionUrl=jdbc:postgresql://#{['teamcity']['db_host']}/#{['teamcity']['db_name']}
+    connectionUrl=jdbc:postgresql://#{node['teamcity']['db_host']}/#{node['teamcity']['db_name']}
   EOT
 end
