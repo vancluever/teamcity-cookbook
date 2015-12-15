@@ -18,3 +18,7 @@ suites:
       - recipe[teamcity::database]
       - recipe[teamcity::server]
     attributes:
+  - name: agent
+    run_list:
+      - recipe[teamcity::agent]
+    attributes:

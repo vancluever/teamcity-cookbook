@@ -7,7 +7,7 @@ cookbook. Hence, I'm making my own.
 
 This CookBook is setting out to do one job, set up the TeamCity server. Any
 other configuration past this for agents I plan on only doing in EC2 and maybe
-Docker.
+Docker. (NOTE: Famous last words, agent recipe is now available!)
 
 **Linux only**. I have no interest in developing this for Windows, and
 is only being stood up so that I can teach myself TeamCity.
@@ -49,6 +49,11 @@ for TeamCity. To fix this, set the admin passwords for the cookbooks that this
 one consumes for the database:
 
  * **PostgreSQL:** `node['postgresql']['password']['postgres']`
+
+### agent (teamcity::agent)
+
+This recipe installs TeamCity agent. Set `node['teamcity']['agent_serverurl']`
+to the URL of the TeamCity server you are installing this agent for.
 
 
 Node Variables and Defaults
