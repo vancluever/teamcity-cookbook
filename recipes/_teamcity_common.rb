@@ -38,10 +38,6 @@ unless Dir.glob("#{node['teamcity']['app_dir']}/*").length > 0
       command "mv #{TC_STAGEDIR}/TeamCity/buildAgent #{node['teamcity']['app_dir']}"
       action :run
     end
-    execute 'move_tc_agentplugins' do
-      command "mv #{TC_STAGEDIR}/TeamCity/webapps/ROOT/WEB-INF/plugins/*/agent/*.zip #{node['teamcity']['app_dir']}/buildAgent/plugins/"
-      action :run
-    end
   else
     execute 'move_tc_files' do
       command "mv #{TC_STAGEDIR}/TeamCity/* #{node['teamcity']['app_dir']}"
