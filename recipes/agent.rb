@@ -14,5 +14,8 @@ poise_service 'teamcity-agent' do
   command "#{node['teamcity']['app_dir']}/buildAgent/bin/agent.sh run"
   user node['teamcity']['app_user']
   directory "#{node['teamcity']['app_dir']}"
-  environment JAVA_HOME: node['java']['java_home']
+  environment ({
+    HOME: node['teamcity']['app_dir'],
+    JAVA_HOME: node['java']['java_home']
+  })
 end

@@ -24,6 +24,7 @@ poise_service 'teamcity-server' do
   user node['teamcity']['app_user']
   directory "#{node['teamcity']['app_dir']}/bin"
   environment ({
+    HOME: node['teamcity']['app_dir'],
     JAVA_HOME: node['java']['java_home'],
     TEAMCITY_SERVER_MEM_OPTS: TC_MEM_OPTS,
     CATALINA_OPTS: TC_CAT_OPTS,
