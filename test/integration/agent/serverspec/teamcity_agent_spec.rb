@@ -11,3 +11,7 @@ end
 describe service('teamcity-agent') do
   it { should be_running }
 end
+
+describe file('/etc/sudoers.d/teamcity') do
+  its(:content) { should match %r{teamcity ALL=\(root\) NOPASSWD:/sbin/reboot} }
+end
