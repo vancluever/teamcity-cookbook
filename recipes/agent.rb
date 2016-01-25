@@ -24,6 +24,7 @@ poise_service 'teamcity-agent' do
   directory "#{node['teamcity']['app_dir']}"
   environment ({
     HOME: node['teamcity']['app_dir'],
-    JAVA_HOME: node['java']['java_home']
+    JAVA_HOME: node['java']['java_home'],
+    LC_CTYPE: node['teamcity']['agent_locale']
   })
 end
