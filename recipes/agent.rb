@@ -16,10 +16,16 @@ template "#{node['teamcity']['app_dir']}/buildAgent/conf/buildAgent.properties" 
   action :create
 end
 
+# Symlink to agent.sh so that it looks better in things like systemd, etc.
+link "#{node['teamcity']['app_dir']}/buildAgent/bin/teamcity-agent" do
+  action :create
+  to "#{node['teamcity']['app_dir']}/buildAgent/bin/agent.sh"
+end
+
 # Agent service
 poise_service 'teamcity-agent' do
   service_name 'teamcity-agent'
-  command "#{node['teamcity']['app_dir']}/buildAgent/bin/agent.sh run"
+  command "#{node['teamcity']['app_dir']}/buildAgent/bin/teamcity-agent run"
   user node['teamcity']['app_user']
   directory "#{node['teamcity']['app_dir']}"
   environment ({

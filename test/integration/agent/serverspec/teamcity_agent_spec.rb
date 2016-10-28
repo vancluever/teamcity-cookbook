@@ -15,3 +15,9 @@ end
 describe file('/etc/sudoers.d/teamcity') do
   its(:content) { should match %r{teamcity ALL=\(root\) NOPASSWD:/sbin/reboot} }
 end
+
+describe file('/opt/teamcity/buildAgent/bin/teamcity-agent') do
+  it { should exist }
+  it { should be_symlink }
+  it { should be_linked_to '/opt/teamcity/buildAgent/bin/agent.sh' }
+end

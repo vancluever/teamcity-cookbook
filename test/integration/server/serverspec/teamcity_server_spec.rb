@@ -21,3 +21,9 @@ end
 describe file('/etc/sudoers.d/teamcity') do
   it { should_not exist }
 end
+
+describe file('/opt/teamcity/bin/teamcity-server') do
+  it { should exist }
+  it { should be_symlink }
+  it { should be_linked_to '/opt/teamcity/bin/catalina.sh' }
+end
