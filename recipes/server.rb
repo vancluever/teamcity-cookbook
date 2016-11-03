@@ -18,12 +18,6 @@ directory "#{node['teamcity']['app_dir']}/logs" do
   group node['teamcity']['app_group']
 end
 
-# Symlink to agent.sh so that it looks better in things like systemd, etc.
-link "#{node['teamcity']['app_dir']}/bin/teamcity-server" do
-  action :create
-  to "#{node['teamcity']['app_dir']}/bin/catalina.sh"
-end
-
 poise_service 'teamcity-server' do
   service_name 'teamcity'
   command "#{node['teamcity']['app_dir']}/bin/catalina.sh run"
