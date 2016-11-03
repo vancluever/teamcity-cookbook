@@ -28,3 +28,9 @@ poise_service 'teamcity-agent' do
     LC_CTYPE: node['teamcity']['agent_locale']
   })
 end
+
+poise_service_options 'teamcity-agent' do
+  for_provider :systemd
+  template 'poise-systemd.service.erb'
+  syslog_identifier 'teamcity-agent'
+end

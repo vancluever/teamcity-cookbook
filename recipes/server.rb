@@ -19,7 +19,7 @@ directory "#{node['teamcity']['app_dir']}/logs" do
 end
 
 poise_service 'teamcity-server' do
-  service_name 'teamcity'
+  service_name 'teamcity-server'
   command "#{node['teamcity']['app_dir']}/bin/catalina.sh run"
   user node['teamcity']['app_user']
   directory "#{node['teamcity']['app_dir']}/bin"
@@ -33,4 +33,10 @@ poise_service 'teamcity-server' do
     TEAMCITY_PID_FILE_PATH: '../logs/teamcity.pid',
     CATALINA_PID: '../logs/teamcity.pid'
   })
+end
+
+poise_service_options 'teamcity-server' do
+  for_provider :systemd
+  template 'poise-systemd.service.erb'
+  syslog_identifier 'teamcity-server'
 end

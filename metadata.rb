@@ -4,7 +4,7 @@ maintainer_email 'chrism@vancluevertech.com'
 license          'MIT'
 description      'Installs/Configures teamcity-cookbook'
 long_description 'Installs/Configures teamcity-cookbook'
-version          '1.1.5'
+version          '1.3.0'
 
 depends 'java'
 depends 'postgresql'
